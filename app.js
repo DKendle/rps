@@ -6,11 +6,13 @@ const possibleChoices = document.querySelectorAll("button")
 
 let userChoice;
 let computerChoice;
+let result;
 
 possibleChoices.forEach(button => button.addEventListener('click', (e) => {
     userChoice = e.target.id
     userChoiceDisplay.innerHTML = userChoice
     generateComputerChoice()
+    getResult()
 }))
 
 function generateComputerChoice(){
@@ -28,4 +30,32 @@ function generateComputerChoice(){
         computerChoice = 'scissors'
     }
     computerChoiceDisplay.innerHTML = computerChoice
+}
+
+function getResult(){
+
+    if(computerChoice === userChoice) {
+        result = 'Draw'
+    }
+
+    if(computerChoice === 'rock' && userChoice === 'paper'){
+        result = 'Winner!'
+    }
+    if(computerChoice === 'rock' && userChoice === 'scissors'){
+            result = 'You Lose!'
+    }
+    if(computerChoice === 'paper' && userChoice === 'rock'){
+        result = 'You Lose!'
+    }
+    if(computerChoice === 'paper' && userChoice === 'scissors'){
+        result = 'Winner!'
+    }
+    if(computerChoice === 'scissors' && userChoice === 'paper'){
+        result = 'You Lose!'
+    }
+    if(computerChoice === 'scissors' && userChoice === 'rock'){
+        result = 'Winner!'
+    }
+
+    resultDisplay.innerHTML = result
 }
