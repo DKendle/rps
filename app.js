@@ -16,19 +16,23 @@ possibleChoices.forEach(button => button.addEventListener('click', (e) => {
 }))
 
 function generateComputerChoice(){
-    const randomNmber = Math.floor(Math.random() * possibleChoices.length) + 1 //length is the same as 3 for 3 choices
+    const randomNumber = Math.floor(Math.random() * possibleChoices.length) + 1 //length is the same as 3 for 3 choices
     console.log(randomNmber)
 
-    if(randomNmber === 1){
-        computerChoice = 'rock' 
+
+    switch(randomNumber){
+        case 1:
+            computerChoice = 'rock' 
+        break;
+        case 2:
+            computerChoice = 'paper'
+        break;
+
+        case 3:
+            computerChoice = 'scissors'
+        break;
     }
-    
-    if(randomNmber === 2){
-        computerChoice = 'paper'
-    }
-    if(randomNmber === 3){
-        computerChoice = 'scissors'
-    }
+   
     computerChoiceDisplay.innerHTML = computerChoice
 }
 
